@@ -1,0 +1,540 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "
+    http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head id="ctl00_Head1">
+      <meta http-equiv="X-UA-Compatible" content="IE=7" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Java練習問題集</title>
+      <link href="libcommon.css" rel="stylesheet" type="text/css" />
+      <meta id="Description" name="Description"
+            content="初心者向けのJava練習問題集です。他のプログラム言語の経験が無く、Javaからプログラミングを始める方を対象としています。変数、分岐、繰り返し等、プログラミングの基本的な要素の習得に重点を置いています。" />
+      <meta id="Keywords" name="Keywords"
+            content="Java,練習問題,プログラム,初心者,変数,分岐,繰り返し,関数,クラス" />
+
+      <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+            { lang: 'ja' }
+      </script>
+
+      <style type="text/css">
+      </style>
+      <style type="text/css">
+    	.ctl00_ContentPlaceHolderMain_MenuTree_0 { text-decoration:none; }
+    	.ctl00_ContentPlaceHolderMain_MenuTree_1 { color:Black; }
+    	.ctl00_ContentPlaceHolderMain_MenuTree_2 { padding:0px 0px 0px 0px; }
+	    .ctl00_ContentPlaceHolderMain_MenuTree_3 { font-weight:normal; }
+	    .ctl00_ContentPlaceHolderMain_MenuTree_4 {  }
+    	.ctl00_ContentPlaceHolderMain_MenuTree_5 { font-weight:bold; }
+    	.ctl00_ContentPlaceHolderMain_MenuTree_6 { padding:0px 0px 0px 0px; }
+	    .ctl00_ContentPlaceHolderMain_MenuTree_7 { color:#5555DD;text-decoration:underline; }
+    	.ctl00_ContentPlaceHolderMain_MenuTree_8 { color:#5555DD;text-decoration:underline; }
+	    .ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_0 { background-color:white;visibility:hidden;display:none;position:absolute;left:0px;top:0px; }
+	    .ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_1 { font-size:95%;text-decoration:none; }
+	    .ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_2 { font-size:95%; }
+	    .ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_3 { color:Black; }
+	    .ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_4 { padding:2px 8px 2px 8px; }
+	    .ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_5 { font-weight:normal; }
+	    .ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_6 { background-color:#66CCFF; }
+	    .ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_7 {  }
+	    .ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_8 { background-color:#FFCC00; }
+
+      </style>[
+    </head>
+    <body>
+        <form name="aspnetForm" method="post" action="./JavaExercise.aspx?id=1" id="aspnetForm">
+        <div>
+          <input type="hidden" name="ctl00_ContentPlaceHolderMain_MenuTree_ExpandState" id="ctl00_ContentPlaceHolderMain_MenuTree_ExpandState" value="nencncncncncncncn" />
+          <input type="hidden" name="ctl00_ContentPlaceHolderMain_MenuTree_SelectedNode" id="ctl00_ContentPlaceHolderMain_MenuTree_SelectedNode" value="ctl00_ContentPlaceHolderMain_MenuTreet1" />
+          <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+          <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+          <input type="hidden" name="ctl00_ContentPlaceHolderMain_MenuTree_PopulateLog" id="ctl00_ContentPlaceHolderMain_MenuTree_PopulateLog" value="" />
+          <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTcxMTQ1MjYwNQ9kFgJmD2QWAgIDD2QWAgIBD2QWBAIBDzwrAAkCAA8WBh4NTmV2ZXJFeHBhbmRlZGQeDFNlbGVjdGVkTm9kZQUnY3RsMDBfQ29udGVudFBsYWNlSG9sZGVyTWFpbl9NZW51VHJlZXQxHglMYXN0SW5kZXgCEWQIFCsACmQUKwACFgQeCFNlbGVjdGVkaB4IRXhwYW5kZWRnZBQrAAIWBB8EZx8DZxQrAAJkFCsAAhYCHwRnZBQrAAJkFCsAAmQUKwACFgIfBGdkFCsAAmQUKwACZBQrAAIWAh8EZ2QUKwACZBQrAAJkFCsAAhYCHwRnZBQrAAJkFCsAAmQUKwACFgIfBGdkFCsAAmQUKwACZBQrAAIWAh8EZ2QUKwACZBQrAAJkFCsAAhYCHwRnZBQrAAJkFCsAAmQUKwACFgIfBGdkZAIDD2QWAgIBDzwrAA0BDDwrAA0BCRQrAAIWBB8DZx4HRW5hYmxlZGhkZBgCBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAQUlY3RsMDAkQ29udGVudFBsYWNlSG9sZGVyTWFpbiRNZW51VHJlZQU0Y3RsMDAkQ29udGVudFBsYWNlSG9sZGVyTWFpbiRjdHJsQ29udGVudHNNZW51MSRNZW51MQ8PZAUUSmF2YSDnt7Tnv5LllY/poYzpm4ZkvR8jnZar6P66YN6C+XVIJ3gk4V0YUKMS+YVS7xF57Qk=" />
+        </div>
+
+        <script type="text/javascript">
+        //<!      [CDATA[
+          var theForm = document.forms['aspnetForm'];
+          if (!theForm) {
+            theForm = document.aspnetForm;
+          }
+          function __doPostBack(eventTarget, eventArgument) {
+              if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                  theForm.__EVENTTARGET.value = eventTarget;
+                  theForm.__EVENTARGUMENT.value = eventArgument;
+                  theForm.submit();
+              }
+          }
+        //]]>
+        </script>
+        <script src="/WebResource.axd?d=an6jsKQaXX7mPe3qX6knHtuAJxCRdC78cyk-zlnxr6BCOupmwr1X4C_
+            q0OQKXDRwdxiVlC97rVwVCIBZJ7Sv5CARX_p2Gedv106imNN1r0o1&amp;t=637812053229275428"
+            type="text/javascript"></script>
+
+
+        <script src="/WebResource.axd?d=CMer_UxSbHF3HI8IrUQ7ZEocXeRimx04OI92aAVIkbsV272dgfa1g1HWBvee8xdhoH7tpRV8_
+        rbW5VPxw2BtwFOU0jZiZV-ef7ZzWLXhi081&amp;t=637812053229275428" type="text/javascript"></script>
+        <script type="text/javascript">
+          //<![CDATA[
+          function TreeView_PopulateNodeDoCallBack(context,param) {
+              WebForm_DoCallback(context.data.treeViewID,param,TreeView_ProcessNodeData,context,
+              TreeView_ProcessNodeData,false);
+          }
+          var ctl00_ContentPlaceHolderMain_MenuTree_Data = null;//]]>
+        </script>
+
+  <script src="/WebResource.axd?d=ORdAjg5pARaoNbB7Zip8MsW4y64FfKvyNsxh8sPrFWgMJxSt9sERT5wWhcXXV2ah3wHNSBPhvb7L2Y1tRU-Jxc7p-wNY2KCbxOAB2pZN_P81&amp;t=637812053229275428" type="text/javascript"></script>
+  <div>
+
+    <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="D0C2544C" />
+  </div>
+  <div id="header">
+    <div style="float: left; margin-right: 32px;">
+      <a href="../Default.aspx" target="_blank">
+
+        <img src="images/header_logo.png" alt="北ソフト工房" /></a>
+    </div>
+    <div style="padding: 4px 0px 0px 32px; float: left;">
+      <p>
+        各種ソフトウェア開発／プログラミング教育／コンサルタント
+      </p>
+      <p style="text-align:right">
+        <a href="mailto:contact@kitako.tokyo" class="link">
+          <img src="images/mail.gif" alt="返信はお約束できませんがご了承ください。" />
+        </a>
+      </p>
+    </div>
+    <div style="padding: 24px 24px 0px 24px; float: left;">
+
+      <div class="g-plusone" data-size="medium" data-count="true"></div>
+    </div>
+
+  </div>
+  <div id="contents">
+
+
+    <div id="right_pane">
+      <div class="caption">
+        目次
+      </div>
+      <div id="index_pane">
+        <div id="ctl00_ContentPlaceHolderMain_MenuTree">
+          <table cellpadding="0" cellspacing="0" style="border-width:0;">
+            <tr>
+              <td><img src="/WebResource.axd?d=-HvUeDXOgfKRbcavYtFYIET9cYpZyfmgCPCPOwjs6l1ECfEQ2b25z5-8loaHPQrmYzjk7JIjesoX1qFng9Xsg2NN1652vBJylSpl2j9oiQfgETb8rr8vMk15bUxhfaB10&amp;t=637812053229275428" alt="" /></td><td class="ctl00_ContentPlaceHolderMain_MenuTree_2" onmouseover="TreeView_HoverNode(ctl00_ContentPlaceHolderMain_MenuTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space:nowrap;"><a class="ctl00_ContentPlaceHolderMain_MenuTree_0 ctl00_ContentPlaceHolderMain_MenuTree_1" href="JavaExercise.aspx" id="ctl00_ContentPlaceHolderMain_MenuTreet0">はじめに</a></td>
+            </tr><tr style="height:2px;">
+            <td></td>
+          </tr>
+          </table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+          <tr style="height:2px;">
+            <td></td>
+          </tr><tr>
+          <td><a id="ctl00_ContentPlaceHolderMain_MenuTreen1" href="javascript:TreeView_ToggleNode(ctl00_ContentPlaceHolderMain_MenuTree_Data,1,document.getElementById(&#39;ctl00_ContentPlaceHolderMain_MenuTreen1&#39;),&#39; &#39;,document.getElementById(&#39;ctl00_ContentPlaceHolderMain_MenuTreen1Nodes&#39;))"><img src="/WebResource.axd?d=ClUTbpbIpi78Uj90efgbumugjXjttZslPkvVslzru37NbYgqPPODDWJ4Nqled1aP0ZYT3ehlq8_f9qNognAVi_3WFfCo3XcBwwxeVpwN-Xp3fpa-asl3lILdFc0-cHxs0&amp;t=637812053229275428" alt="1. 表示、変数、演算 の縮小" style="border-width:0;" /></a></td><td class="ctl00_ContentPlaceHolderMain_MenuTree_2 ctl00_ContentPlaceHolderMain_MenuTree_6" onmouseover="TreeView_HoverNode(ctl00_ContentPlaceHolderMain_MenuTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space:nowrap;"><a class="ctl00_ContentPlaceHolderMain_MenuTree_0 ctl00_ContentPlaceHolderMain_MenuTree_1 ctl00_ContentPlaceHolderMain_MenuTree_5" href="JavaExercise.aspx?id=1" id="ctl00_ContentPlaceHolderMain_MenuTreet1">1. 表示、変数、演算</a></td>
+        </tr><tr style="height:2px;">
+          <td></td>
+        </tr>
+        </table><div id="ctl00_ContentPlaceHolderMain_MenuTreen1Nodes" style="display:block;">
+          <table cellpadding="0" cellspacing="0" style="border-width:0;">
+            <tr style="height:2px;">
+              <td></td>
+            </tr><tr>
+            <td><div style="width:10px;height:1px"></div></td><td><img src="/WebResource.axd?d=-HvUeDXOgfKRbcavYtFYIET9cYpZyfmgCPCPOwjs6l1ECfEQ2b25z5-8loaHPQrmYzjk7JIjesoX1qFng9Xsg2NN1652vBJylSpl2j9oiQfgETb8rr8vMk15bUxhfaB10&amp;t=637812053229275428" alt="" /></td><td class="ctl00_ContentPlaceHolderMain_MenuTree_2" onmouseover="TreeView_HoverNode(ctl00_ContentPlaceHolderMain_MenuTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space:nowrap;"><a class="ctl00_ContentPlaceHolderMain_MenuTree_0 ctl00_ContentPlaceHolderMain_MenuTree_1" href="JavaExercise.aspx?id=101" id="ctl00_ContentPlaceHolderMain_MenuTreet2">解答例</a></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr>
+          </table>
+        </div><table cellpadding="0" cellspacing="0" style="border-width:0;">
+          <tr style="height:2px;">
+            <td></td>
+          </tr><tr>
+          <td><a id="ctl00_ContentPlaceHolderMain_MenuTreen3" href="javascript:TreeView_ToggleNode(ctl00_ContentPlaceHolderMain_MenuTree_Data,3,document.getElementById(&#39;ctl00_ContentPlaceHolderMain_MenuTreen3&#39;),&#39; &#39;,document.getElementById(&#39;ctl00_ContentPlaceHolderMain_MenuTreen3Nodes&#39;))"><img src="/WebResource.axd?d=iFdr_cD3vdZTTzx2OXKONl89li0SxB3iF-VOJ5BlieNTaJGo3L9m-6arTE5YyoCEF0kD6LRZY_dvnTvtREw7z5rUJbbBuny42sAbCRXVMYnIdFP-vrvwtxIOf20IqNNJ0&amp;t=637812053229275428" alt="2. 入力 の展開" style="border-width:0;" /></a></td><td class="ctl00_ContentPlaceHolderMain_MenuTree_2" onmouseover="TreeView_HoverNode(ctl00_ContentPlaceHolderMain_MenuTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space:nowrap;"><a class="ctl00_ContentPlaceHolderMain_MenuTree_0 ctl00_ContentPlaceHolderMain_MenuTree_1" href="JavaExercise.aspx?id=2" id="ctl00_ContentPlaceHolderMain_MenuTreet3">2. 入力</a></td>
+        </tr><tr style="height:2px;">
+          <td></td>
+        </tr>
+        </table><div id="ctl00_ContentPlaceHolderMain_MenuTreen3Nodes" style="display:none;">
+          <table cellpadding="0" cellspacing="0" style="border-width:0;">
+            <tr style="height:2px;">
+              <td></td>
+            </tr><tr>
+            <td><div style="width:10px;height:1px"></div></td><td><img src="/WebResource.axd?d=-HvUeDXOgfKRbcavYtFYIET9cYpZyfmgCPCPOwjs6l1ECfEQ2b25z5-8loaHPQrmYzjk7JIjesoX1qFng9Xsg2NN1652vBJylSpl2j9oiQfgETb8rr8vMk15bUxhfaB10&amp;t=637812053229275428" alt="" /></td><td class="ctl00_ContentPlaceHolderMain_MenuTree_2" onmouseover="TreeView_HoverNode(ctl00_ContentPlaceHolderMain_MenuTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space:nowrap;"><a class="ctl00_ContentPlaceHolderMain_MenuTree_0 ctl00_ContentPlaceHolderMain_MenuTree_1" href="JavaExercise.aspx?id=102" id="ctl00_ContentPlaceHolderMain_MenuTreet4">解答例</a></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr>
+          </table>
+        </div><table cellpadding="0" cellspacing="0" style="border-width:0;">
+          <tr style="height:2px;">
+            <td></td>
+          </tr><tr>
+          <td><a id="ctl00_ContentPlaceHolderMain_MenuTreen5" href="javascript:TreeView_ToggleNode(ctl00_ContentPlaceHolderMain_MenuTree_Data,5,document.getElementById(&#39;ctl00_ContentPlaceHolderMain_MenuTreen5&#39;),&#39; &#39;,document.getElementById(&#39;ctl00_ContentPlaceHolderMain_MenuTreen5Nodes&#39;))"><img src="/WebResource.axd?d=iFdr_cD3vdZTTzx2OXKONl89li0SxB3iF-VOJ5BlieNTaJGo3L9m-6arTE5YyoCEF0kD6LRZY_dvnTvtREw7z5rUJbbBuny42sAbCRXVMYnIdFP-vrvwtxIOf20IqNNJ0&amp;t=637812053229275428" alt="3. 分岐 の展開" style="border-width:0;" /></a></td><td class="ctl00_ContentPlaceHolderMain_MenuTree_2" onmouseover="TreeView_HoverNode(ctl00_ContentPlaceHolderMain_MenuTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space:nowrap;"><a class="ctl00_ContentPlaceHolderMain_MenuTree_0 ctl00_ContentPlaceHolderMain_MenuTree_1" href="JavaExercise.aspx?id=3" id="ctl00_ContentPlaceHolderMain_MenuTreet5">3. 分岐</a></td>
+        </tr><tr style="height:2px;">
+          <td></td>
+        </tr>
+        </table><div id="ctl00_ContentPlaceHolderMain_MenuTreen5Nodes" style="display:none;">
+          <table cellpadding="0" cellspacing="0" style="border-width:0;">
+            <tr style="height:2px;">
+              <td></td>
+            </tr><tr>
+            <td><div style="width:10px;height:1px"></div></td><td><img src="/WebResource.axd?d=-HvUeDXOgfKRbcavYtFYIET9cYpZyfmgCPCPOwjs6l1ECfEQ2b25z5-8loaHPQrmYzjk7JIjesoX1qFng9Xsg2NN1652vBJylSpl2j9oiQfgETb8rr8vMk15bUxhfaB10&amp;t=637812053229275428" alt="" /></td><td class="ctl00_ContentPlaceHolderMain_MenuTree_2" onmouseover="TreeView_HoverNode(ctl00_ContentPlaceHolderMain_MenuTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space:nowrap;"><a class="ctl00_ContentPlaceHolderMain_MenuTree_0 ctl00_ContentPlaceHolderMain_MenuTree_1" href="JavaExercise.aspx?id=103" id="ctl00_ContentPlaceHolderMain_MenuTreet6">解答例</a></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr>
+          </table>
+        </div><table cellpadding="0" cellspacing="0" style="border-width:0;">
+          <tr style="height:2px;">
+            <td></td>
+          </tr><tr>
+          <td><a id="ctl00_ContentPlaceHolderMain_MenuTreen7" href="javascript:TreeView_ToggleNode(ctl00_ContentPlaceHolderMain_MenuTree_Data,7,document.getElementById(&#39;ctl00_ContentPlaceHolderMain_MenuTreen7&#39;),&#39; &#39;,document.getElementById(&#39;ctl00_ContentPlaceHolderMain_MenuTreen7Nodes&#39;))"><img src="/WebResource.axd?d=iFdr_cD3vdZTTzx2OXKONl89li0SxB3iF-VOJ5BlieNTaJGo3L9m-6arTE5YyoCEF0kD6LRZY_dvnTvtREw7z5rUJbbBuny42sAbCRXVMYnIdFP-vrvwtxIOf20IqNNJ0&amp;t=637812053229275428" alt="4. 繰り返し の展開" style="border-width:0;" /></a></td><td class="ctl00_ContentPlaceHolderMain_MenuTree_2" onmouseover="TreeView_HoverNode(ctl00_ContentPlaceHolderMain_MenuTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space:nowrap;"><a class="ctl00_ContentPlaceHolderMain_MenuTree_0 ctl00_ContentPlaceHolderMain_MenuTree_1" href="JavaExercise.aspx?id=4" id="ctl00_ContentPlaceHolderMain_MenuTreet7">4. 繰り返し</a></td>
+        </tr><tr style="height:2px;">
+          <td></td>
+        </tr>
+        </table><div id="ctl00_ContentPlaceHolderMain_MenuTreen7Nodes" style="display:none;">
+          <table cellpadding="0" cellspacing="0" style="border-width:0;">
+            <tr style="height:2px;">
+              <td></td>
+            </tr><tr>
+            <td><div style="width:10px;height:1px"></div></td><td><img src="/WebResource.axd?d=-HvUeDXOgfKRbcavYtFYIET9cYpZyfmgCPCPOwjs6l1ECfEQ2b25z5-8loaHPQrmYzjk7JIjesoX1qFng9Xsg2NN1652vBJylSpl2j9oiQfgETb8rr8vMk15bUxhfaB10&amp;t=637812053229275428" alt="" /></td><td class="ctl00_ContentPlaceHolderMain_MenuTree_2" onmouseover="TreeView_HoverNode(ctl00_ContentPlaceHolderMain_MenuTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space:nowrap;"><a class="ctl00_ContentPlaceHolderMain_MenuTree_0 ctl00_ContentPlaceHolderMain_MenuTree_1" href="JavaExercise.aspx?id=104" id="ctl00_ContentPlaceHolderMain_MenuTreet8">解答例</a></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr>
+          </table>
+        </div><table cellpadding="0" cellspacing="0" style="border-width:0;">
+          <tr style="height:2px;">
+            <td></td>
+          </tr><tr>
+          <td><a id="ctl00_ContentPlaceHolderMain_MenuTreen9" href="javascript:TreeView_ToggleNode(ctl00_ContentPlaceHolderMain_MenuTree_Data,9,document.getElementById(&#39;ctl00_ContentPlaceHolderMain_MenuTreen9&#39;),&#39; &#39;,document.getElementById(&#39;ctl00_ContentPlaceHolderMain_MenuTreen9Nodes&#39;))"><img src="/WebResource.axd?d=iFdr_cD3vdZTTzx2OXKONl89li0SxB3iF-VOJ5BlieNTaJGo3L9m-6arTE5YyoCEF0kD6LRZY_dvnTvtREw7z5rUJbbBuny42sAbCRXVMYnIdFP-vrvwtxIOf20IqNNJ0&amp;t=637812053229275428" alt="5. 配列 の展開" style="border-width:0;" /></a></td><td class="ctl00_ContentPlaceHolderMain_MenuTree_2" onmouseover="TreeView_HoverNode(ctl00_ContentPlaceHolderMain_MenuTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space:nowrap;"><a class="ctl00_ContentPlaceHolderMain_MenuTree_0 ctl00_ContentPlaceHolderMain_MenuTree_1" href="JavaExercise.aspx?id=5" id="ctl00_ContentPlaceHolderMain_MenuTreet9">5. 配列</a></td>
+        </tr><tr style="height:2px;">
+          <td></td>
+        </tr>
+        </table><div id="ctl00_ContentPlaceHolderMain_MenuTreen9Nodes" style="display:none;">
+          <table cellpadding="0" cellspacing="0" style="border-width:0;">
+            <tr style="height:2px;">
+              <td></td>
+            </tr><tr>
+            <td><div style="width:10px;height:1px"></div></td><td><img src="/WebResource.axd?d=-HvUeDXOgfKRbcavYtFYIET9cYpZyfmgCPCPOwjs6l1ECfEQ2b25z5-8loaHPQrmYzjk7JIjesoX1qFng9Xsg2NN1652vBJylSpl2j9oiQfgETb8rr8vMk15bUxhfaB10&amp;t=637812053229275428" alt="" /></td><td class="ctl00_ContentPlaceHolderMain_MenuTree_2" onmouseover="TreeView_HoverNode(ctl00_ContentPlaceHolderMain_MenuTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space:nowrap;"><a class="ctl00_ContentPlaceHolderMain_MenuTree_0 ctl00_ContentPlaceHolderMain_MenuTree_1" href="JavaExercise.aspx?id=105" id="ctl00_ContentPlaceHolderMain_MenuTreet10">解答例</a></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr>
+          </table>
+        </div><table cellpadding="0" cellspacing="0" style="border-width:0;">
+          <tr style="height:2px;">
+            <td></td>
+          </tr><tr>
+          <td><a id="ctl00_ContentPlaceHolderMain_MenuTreen11" href="javascript:TreeView_ToggleNode(ctl00_ContentPlaceHolderMain_MenuTree_Data,11,document.getElementById(&#39;ctl00_ContentPlaceHolderMain_MenuTreen11&#39;),&#39; &#39;,document.getElementById(&#39;ctl00_ContentPlaceHolderMain_MenuTreen11Nodes&#39;))"><img src="/WebResource.axd?d=iFdr_cD3vdZTTzx2OXKONl89li0SxB3iF-VOJ5BlieNTaJGo3L9m-6arTE5YyoCEF0kD6LRZY_dvnTvtREw7z5rUJbbBuny42sAbCRXVMYnIdFP-vrvwtxIOf20IqNNJ0&amp;t=637812053229275428" alt="6. メソッド の展開" style="border-width:0;" /></a></td><td class="ctl00_ContentPlaceHolderMain_MenuTree_2" onmouseover="TreeView_HoverNode(ctl00_ContentPlaceHolderMain_MenuTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space:nowrap;"><a class="ctl00_ContentPlaceHolderMain_MenuTree_0 ctl00_ContentPlaceHolderMain_MenuTree_1" href="JavaExercise.aspx?id=6" id="ctl00_ContentPlaceHolderMain_MenuTreet11">6. メソッド</a></td>
+        </tr><tr style="height:2px;">
+          <td></td>
+        </tr>
+        </table><div id="ctl00_ContentPlaceHolderMain_MenuTreen11Nodes" style="display:none;">
+          <table cellpadding="0" cellspacing="0" style="border-width:0;">
+            <tr style="height:2px;">
+              <td></td>
+            </tr><tr>
+            <td><div style="width:10px;height:1px"></div></td><td><img src="/WebResource.axd?d=-HvUeDXOgfKRbcavYtFYIET9cYpZyfmgCPCPOwjs6l1ECfEQ2b25z5-8loaHPQrmYzjk7JIjesoX1qFng9Xsg2NN1652vBJylSpl2j9oiQfgETb8rr8vMk15bUxhfaB10&amp;t=637812053229275428" alt="" /></td><td class="ctl00_ContentPlaceHolderMain_MenuTree_2" onmouseover="TreeView_HoverNode(ctl00_ContentPlaceHolderMain_MenuTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space:nowrap;"><a class="ctl00_ContentPlaceHolderMain_MenuTree_0 ctl00_ContentPlaceHolderMain_MenuTree_1" href="JavaExercise.aspx?id=106" id="ctl00_ContentPlaceHolderMain_MenuTreet12">解答例</a></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr>
+          </table>
+        </div><table cellpadding="0" cellspacing="0" style="border-width:0;">
+          <tr style="height:2px;">
+            <td></td>
+          </tr><tr>
+          <td><a id="ctl00_ContentPlaceHolderMain_MenuTreen13" href="javascript:TreeView_ToggleNode(ctl00_ContentPlaceHolderMain_MenuTree_Data,13,document.getElementById(&#39;ctl00_ContentPlaceHolderMain_MenuTreen13&#39;),&#39; &#39;,document.getElementById(&#39;ctl00_ContentPlaceHolderMain_MenuTreen13Nodes&#39;))"><img src="/WebResource.axd?d=iFdr_cD3vdZTTzx2OXKONl89li0SxB3iF-VOJ5BlieNTaJGo3L9m-6arTE5YyoCEF0kD6LRZY_dvnTvtREw7z5rUJbbBuny42sAbCRXVMYnIdFP-vrvwtxIOf20IqNNJ0&amp;t=637812053229275428" alt="7. クラスⅠ の展開" style="border-width:0;" /></a></td><td class="ctl00_ContentPlaceHolderMain_MenuTree_2" onmouseover="TreeView_HoverNode(ctl00_ContentPlaceHolderMain_MenuTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space:nowrap;"><a class="ctl00_ContentPlaceHolderMain_MenuTree_0 ctl00_ContentPlaceHolderMain_MenuTree_1" href="JavaExercise.aspx?id=7" id="ctl00_ContentPlaceHolderMain_MenuTreet13">7. クラスⅠ</a></td>
+        </tr><tr style="height:2px;">
+          <td></td>
+        </tr>
+        </table><div id="ctl00_ContentPlaceHolderMain_MenuTreen13Nodes" style="display:none;">
+          <table cellpadding="0" cellspacing="0" style="border-width:0;">
+            <tr style="height:2px;">
+              <td></td>
+            </tr><tr>
+            <td><div style="width:10px;height:1px"></div></td><td><img src="/WebResource.axd?d=-HvUeDXOgfKRbcavYtFYIET9cYpZyfmgCPCPOwjs6l1ECfEQ2b25z5-8loaHPQrmYzjk7JIjesoX1qFng9Xsg2NN1652vBJylSpl2j9oiQfgETb8rr8vMk15bUxhfaB10&amp;t=637812053229275428" alt="" /></td><td class="ctl00_ContentPlaceHolderMain_MenuTree_2" onmouseover="TreeView_HoverNode(ctl00_ContentPlaceHolderMain_MenuTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space:nowrap;"><a class="ctl00_ContentPlaceHolderMain_MenuTree_0 ctl00_ContentPlaceHolderMain_MenuTree_1" href="JavaExercise.aspx?id=107" id="ctl00_ContentPlaceHolderMain_MenuTreet14">解答例</a></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr>
+          </table>
+        </div><table cellpadding="0" cellspacing="0" style="border-width:0;">
+          <tr style="height:2px;">
+            <td></td>
+          </tr><tr>
+          <td><a id="ctl00_ContentPlaceHolderMain_MenuTreen15" href="javascript:TreeView_ToggleNode(ctl00_ContentPlaceHolderMain_MenuTree_Data,15,document.getElementById(&#39;ctl00_ContentPlaceHolderMain_MenuTreen15&#39;),&#39; &#39;,document.getElementById(&#39;ctl00_ContentPlaceHolderMain_MenuTreen15Nodes&#39;))"><img src="/WebResource.axd?d=iFdr_cD3vdZTTzx2OXKONl89li0SxB3iF-VOJ5BlieNTaJGo3L9m-6arTE5YyoCEF0kD6LRZY_dvnTvtREw7z5rUJbbBuny42sAbCRXVMYnIdFP-vrvwtxIOf20IqNNJ0&amp;t=637812053229275428" alt="8. クラスⅡ の展開" style="border-width:0;" /></a></td><td class="ctl00_ContentPlaceHolderMain_MenuTree_2" onmouseover="TreeView_HoverNode(ctl00_ContentPlaceHolderMain_MenuTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space:nowrap;"><a class="ctl00_ContentPlaceHolderMain_MenuTree_0 ctl00_ContentPlaceHolderMain_MenuTree_1" href="JavaExercise.aspx?id=8" id="ctl00_ContentPlaceHolderMain_MenuTreet15">8. クラスⅡ</a></td>
+        </tr><tr style="height:2px;">
+          <td></td>
+        </tr>
+        </table><div id="ctl00_ContentPlaceHolderMain_MenuTreen15Nodes" style="display:none;">
+          <table cellpadding="0" cellspacing="0" style="border-width:0;">
+            <tr style="height:2px;">
+              <td></td>
+            </tr><tr>
+            <td><div style="width:10px;height:1px"></div></td><td><img src="/WebResource.axd?d=-HvUeDXOgfKRbcavYtFYIET9cYpZyfmgCPCPOwjs6l1ECfEQ2b25z5-8loaHPQrmYzjk7JIjesoX1qFng9Xsg2NN1652vBJylSpl2j9oiQfgETb8rr8vMk15bUxhfaB10&amp;t=637812053229275428" alt="" /></td><td class="ctl00_ContentPlaceHolderMain_MenuTree_2" onmouseover="TreeView_HoverNode(ctl00_ContentPlaceHolderMain_MenuTree_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space:nowrap;"><a class="ctl00_ContentPlaceHolderMain_MenuTree_0 ctl00_ContentPlaceHolderMain_MenuTree_1" href="JavaExercise.aspx?id=108" id="ctl00_ContentPlaceHolderMain_MenuTreet16">解答例</a></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr>
+          </table>
+        </div>
+        </div>
+      </div>
+
+
+      <div class="contents_menu">
+        <div class="caption">
+          コンテンツ一覧
+        </div>
+        <div class="list">
+          <table id="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1" class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_2" cellpadding="0" cellspacing="0" border="0">
+            <tr id="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1n0">
+              <td><table class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+                <tr>
+                  <td style="white-space:nowrap;width:100%;"><a class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_1 ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_3" disabled="true">文字列処理</a></td>
+                </tr>
+              </table></td>
+            </tr><tr style="height:2px;">
+            <td></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr><tr onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1n1">
+            <td><table class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td style="white-space:nowrap;width:100%;"><a class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_1 ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_3" href="Essay.aspx?id=ngramdb1"><img src="images/book_icon_s.png" alt="" style="border-style:none;vertical-align:middle;" /> RDBで実装するN-Gram全文検索</a></td>
+              </tr>
+            </table></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr><tr onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1n2">
+            <td><table class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td style="white-space:nowrap;width:100%;"><a class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_1 ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_3" href="Essay.aspx?id=ccsearch1"><img src="images/book_icon_s.png" alt="" style="border-style:none;vertical-align:middle;" /> 文字成分表によるLIKEの高速化</a></td>
+              </tr>
+            </table></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr><tr onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1n3">
+            <td><table class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td style="white-space:nowrap;width:100%;"><a class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_1 ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_3" href="RepStrings.aspx"><img src="images/tool_icon_s.png" alt="" style="border-style:none;vertical-align:middle;" /> テキストの反復パターン抽出 </a></td>
+              </tr>
+            </table></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr><tr id="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1n4">
+            <td><table class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td style="white-space:nowrap;width:100%;"><a class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_1 ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_3" disabled="true">プログラミング学習</a></td>
+              </tr>
+            </table></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr><tr onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1n5">
+            <td><table class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td style="white-space:nowrap;width:100%;"><a class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_1 ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_3" href="CFirst.aspx"><img src="images/book_icon_s.png" alt="" style="border-style:none;vertical-align:middle;" /> とりあえずのC言語</a></td>
+              </tr>
+            </table></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr><tr onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1n6">
+            <td><table class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td style="white-space:nowrap;width:100%;"><a class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_1 ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_3" href="CExercise.aspx"><img src="images/book_icon_s.png" alt="" style="border-style:none;vertical-align:middle;" /> C言語 練習問題集</a></td>
+              </tr>
+            </table></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr><tr onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1n7">
+            <td><table class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td style="white-space:nowrap;width:100%;"><a class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_1 ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_3" href="CTask.aspx"><img src="images/book_icon_s.png" alt="" style="border-style:none;vertical-align:middle;" /> C言語、Java 練習プログラム集</a></td>
+              </tr>
+            </table></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr><tr id="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1n8">
+            <td><table class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_4 ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td style="white-space:nowrap;width:100%;"><a class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_1 ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_3 ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_5" disabled="true"><img src="images/book_icon_s.png" alt="" style="border-style:none;vertical-align:middle;" /> Java 練習問題集</a></td>
+              </tr>
+            </table></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr><tr onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1n9">
+            <td><table class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td style="white-space:nowrap;width:100%;"><a class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_1 ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_3" href="CsExercise.aspx"><img src="images/book_icon_s.png" alt="" style="border-style:none;vertical-align:middle;" /> C# 練習問題集</a></td>
+              </tr>
+            </table></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr><tr onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1n10">
+            <td><table class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td style="white-space:nowrap;width:100%;"><a class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_1 ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_3" href="VBExercise.aspx"><img src="images/book_icon_s.png" alt="" style="border-style:none;vertical-align:middle;" /> VB.NET 練習問題集</a></td>
+              </tr>
+            </table></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr><tr onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1n11">
+            <td><table class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td style="white-space:nowrap;width:100%;"><a class="ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_1 ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_3" href="ConsoleApps.aspx"><img src="images/book_icon_s.png" alt="" style="border-style:none;vertical-align:middle;" /> コンソール・アプリケーション集</a></td>
+              </tr>
+            </table></td>
+          </tr><tr style="height:2px;">
+            <td></td>
+          </tr>
+          </table>
+        </div>
+      </div>
+
+      <div id="ctl00_ContentPlaceHolderMain_ctrlRightAd_pnlAdSpace" style="background-color:White;">
+        <p>&nbsp;</p>
+        <div>
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <!-- 300x600 kitako.tokyo用 -->
+          <ins class="adsbygoogle"
+               style="display: inline-block; width: 300px; height: 600px"
+               data-ad-client="ca-pub-5812454500125083"
+               data-ad-slot="3137147323"></ins>
+          <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div id="left_pane" class="tree_document">
+      <div class="caption">
+        <a href="Default.aspx">Top &gt;</a>Java　練習問題集
+      </div>
+      <div id="page_pane" class="exercise">
+        <?xml version="1.0" encoding="utf-8"?><exercise><h2>1. 表示、変数、演算</h2><div class="item"><h3>
+        練習問題 1 - 1</h3><div class="text"><thema><p><span class="jpfont">“</span>Hello World<span class="jpfont">”</span>と表示するプログラムを作成しなさい<span class="jpfont">。</span></p></thema><table cellspading="0" cellspacing="0" border="0"><tr><td class="note">※ </td><td class="note">System.out.println()、System.out.print()、System.out.printf()などを使用する<span class="jpfont">。</span></td></tr></table></div></div><div class="item"><h3>
+        練習問題 1 - 2</h3><div class="text"><thema><p>int 型の変数 x に数値 11 を代入し、x の値を<span class="jpfont">“</span>x=11<span class="jpfont">”</span>のように表示するプログラムを作成しなさい<span class="jpfont">。</span></p></thema></div></div><div class="item"><h3>
+        練習問題 1 - 3</h3><div class="text"><thema><p>int 型の変数 x、y に数値 13、17 を代入し、x、y の値を<span class="jpfont">“</span>x=13,y=17<span class="jpfont">”</span>のように表示するプログラムを作成しなさい<span class="jpfont">。</span></p></thema></div></div><div class="item"><h3>
+        練習問題 1 - 4</h3><div class="text"><thema><p>int 型の変数 x に数値 13 と 17 の和を代入し、x の値を表示するプログラムを作成しなさい<span class="jpfont">。</span></p></thema></div></div><div class="item"><h3>
+        練習問題 1 - 5</h3><div class="text"><thema><p>数値 13 と 17 の積を表示するプログラムを作成しなさい<span class="jpfont">。</span>ただし、変数を使用しないこと<span class="jpfont">。</span></p></thema><table cellspading="0" cellspacing="0" border="0"><tr><td class="note">※ </td><td class="note">System.out.println()の引数部分で演算を行う<span class="jpfont">。</span></td></tr></table></div></div><div class="item"><h3>
+        練習問題 1 - 6</h3><div class="text"><thema><p>次のプログラムを作成しなさい<span class="jpfont">。</span></p><ul><li>int 型の変数 x に数値 7 を代入する<span class="jpfont">。</span></li><li>変数 x の値を 3 倍にする<span class="jpfont">。</span></li><li>変数 x の値を表示する<span class="jpfont">。</span></li><li>変数 x の値を半分（1/2）にする<span class="jpfont">。</span></li><li>変数 x の値を表示する<span class="jpfont">。</span></li></ul></thema></div></div><div class="item"><h3>
+        練習問題 1 - 7</h3><div class="text"><thema><p>int 型の変数 x、y に任意の数値を代入し、x の値を y に、y の値を x に入れ替えて x と y の値を表示するプログラムを作成しなさい<span class="jpfont">。</span></p></thema><table cellspading="0" cellspacing="0" border="0"><tr><td class="note">※ </td><td class="note">xとy以外に、もうひとつ変数が必要となる<span class="jpfont">。</span></td></tr></table>
+        <div class="code">
+
+          x = 3;<br />
+          y = 7;<br /><br /><span class="comment"><span class="comment">// ここでxとyの値を入れ替える</span></span><br /><br />
+          System.out.println( <span class="stext">"x="</span> + x + <span class="stext">",y="</span> + y );<br />
+        </div>
+      </div></div><div class="item"><h3>
+        練習問題 1 - 8</h3><div class="text"><thema><p>int 型の変数 x、y に数値 19、23 を代入し、その積を変数 z に代入して z の値を表示するプログラムを作成しなさい<span class="jpfont">。</span></p></thema></div></div><div class="item"><h3>
+        練習問題 1 - 9</h3><div class="text"><thema><p>int 型の変数 x に任意の数値を代入し、x を 2 倍、3 倍、4 倍した結果を表示するプログラムを作成しなさい<span class="jpfont">。</span></p></thema></div></div><div class="item"><h3>
+        練習問題 1 - 10</h3><div class="text"><thema><p>int 型の変数 x に任意の数値を代入し、x を 1 乗、2 乗、3 乗した結果を表示するプログラムを作成しなさい<span class="jpfont">。</span></p></thema></div></div><div class="item"><h3>
+        練習問題 1 - 11</h3><div class="text"><thema><p>int 型の変数 x に任意の数値を代入し、x を x より小さい任意の数値で割った商と余りを表示するプログラムを作成しなさい<span class="jpfont">。</span></p></thema></div></div><div class="item"><h3>
+        練習問題 1 - 12</h3><div class="text"><thema><p>int 型の変数 x に任意の数値を代入し、インクリメント演算子、デクリメント演算子を適用して結果を表示することにより演算子の効果を確認するプログラムを作成しなさい<span class="jpfont">。</span></p></thema></div></div></exercise>
+      </div>
+      <div id="ctl00_ContentPlaceHolderMain_ctrlLeftAd_pnlAdSpace" style="background-color:#CCCCCC;text-align:center;">
+
+      </div>
+
+    </div>
+
+  </div>
+  <div id="footer">
+    <div style="float: left; padding-top: 8px; padding-left: 1em;">
+      <span style="color: #AA0000; font-weight: bold;">北ソフト工房</span>
+    </div>
+    <div style="text-align: right; padding-top: 8px; padding-right: 2em;">
+      Copyright © 2023 北ソフト工房 All Rights Reserved.
+    </div>
+  </div>
+  <div id="ad_pane">
+
+    <div style="height: 60px; float: left;">
+      <a href="http://paperbowl.info" target="_blank">
+        <img src="../banner/paperbowl_banner.jpg" alt="PAPER BOWL" /></a>
+    </div>
+    <div style="height: 60px; float: left;">
+      <a href="http://nezen.info" target="_blank">
+        <img src="../banner/nezen_banner.jpg" alt="NEZEN" /></a>
+      &nbsp;
+    </div>
+    <div style="height: 60px;">
+      <iframe src="http://rcm-fe.amazon-adsystem.com/e/cm?t=santos1989-22&o=9&p=13&l=bn1&mode=apparel-jp&browse=2131478051&fc1=000000&lt1=_blank&lc1=3366FF&bg1=FFFFFF&f=ifr" marginwidth="0" marginheight="0" width="468" height="60" border="0" frameborder="0" style="border: none;" scrolling="no"></iframe>
+    </div>
+  </div>
+
+
+  <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+
+  <script type="text/javascript">
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-10460877-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+
+
+  <script type="text/javascript">
+//<![CDATA[
+var ctl00_ContentPlaceHolderMain_MenuTree_ImageArray =  new Array('', '', '', '/WebResource.axd?d=-HvUeDXOgfKRbcavYtFYIET9cYpZyfmgCPCPOwjs6l1ECfEQ2b25z5-8loaHPQrmYzjk7JIjesoX1qFng9Xsg2NN1652vBJylSpl2j9oiQfgETb8rr8vMk15bUxhfaB10&t=637812053229275428', '/WebResource.axd?d=iFdr_cD3vdZTTzx2OXKONl89li0SxB3iF-VOJ5BlieNTaJGo3L9m-6arTE5YyoCEF0kD6LRZY_dvnTvtREw7z5rUJbbBuny42sAbCRXVMYnIdFP-vrvwtxIOf20IqNNJ0&t=637812053229275428', '/WebResource.axd?d=ClUTbpbIpi78Uj90efgbumugjXjttZslPkvVslzru37NbYgqPPODDWJ4Nqled1aP0ZYT3ehlq8_f9qNognAVi_3WFfCo3XcBwwxeVpwN-Xp3fpa-asl3lILdFc0-cHxs0&t=637812053229275428');
+//]]>
+</script>
+
+
+  <script type="text/javascript">
+//<![CDATA[
+
+var callBackFrameUrl='/WebResource.axd?d=OF-VO2qzokHPcRb4dFG0R-_jUtDX_dVTfzEdGG3yYEX_dzJIa_oTtDkN6RNoxHniSezL_9_LkVhm9EXXRFTyh5YkWat9Y1W6DCIoP7_DKwE1&t=637812053229275428';
+WebForm_InitCallback();var ctl00_ContentPlaceHolderMain_MenuTree_Data = new Object();
+ctl00_ContentPlaceHolderMain_MenuTree_Data.images = ctl00_ContentPlaceHolderMain_MenuTree_ImageArray;
+ctl00_ContentPlaceHolderMain_MenuTree_Data.collapseToolTip = "{0} の縮小";
+ctl00_ContentPlaceHolderMain_MenuTree_Data.expandToolTip = "{0} の展開";
+ctl00_ContentPlaceHolderMain_MenuTree_Data.expandState = theForm.elements['ctl00_ContentPlaceHolderMain_MenuTree_ExpandState'];
+ctl00_ContentPlaceHolderMain_MenuTree_Data.selectedNodeID = theForm.elements['ctl00_ContentPlaceHolderMain_MenuTree_SelectedNode'];
+ctl00_ContentPlaceHolderMain_MenuTree_Data.hoverClass = 'ctl00_ContentPlaceHolderMain_MenuTree_8';
+ctl00_ContentPlaceHolderMain_MenuTree_Data.hoverHyperLinkClass = 'ctl00_ContentPlaceHolderMain_MenuTree_7';
+(function() {
+  for (var i=0;i<6;i++) {
+  var preLoad = new Image();
+  if (ctl00_ContentPlaceHolderMain_MenuTree_ImageArray[i].length > 0)
+    preLoad.src = ctl00_ContentPlaceHolderMain_MenuTree_ImageArray[i];
+  }
+})();
+ctl00_ContentPlaceHolderMain_MenuTree_Data.lastIndex = 17;
+ctl00_ContentPlaceHolderMain_MenuTree_Data.populateLog = theForm.elements['ctl00_ContentPlaceHolderMain_MenuTree_PopulateLog'];
+ctl00_ContentPlaceHolderMain_MenuTree_Data.treeViewID = 'ctl00$ContentPlaceHolderMain$MenuTree';
+ctl00_ContentPlaceHolderMain_MenuTree_Data.name = 'ctl00_ContentPlaceHolderMain_MenuTree_Data';
+var ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_Data = new Object();
+ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_Data.disappearAfter = 500;
+ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_Data.horizontalOffset = 0;
+ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_Data.verticalOffset = 0;
+ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_Data.staticHoverClass = 'ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_8';
+ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_Data.staticHoverHyperLinkClass = 'ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_7';
+ctl00_ContentPlaceHolderMain_ctrlContentsMenu1_Menu1_Data.iframeUrl = '/WebResource.axd?d=OF-VO2qzokHPcRb4dFG0R-_jUtDX_dVTfzEdGG3yYEX_dzJIa_oTtDkN6RNoxHniSezL_9_LkVhm9EXXRFTyh5YkWat9Y1W6DCIoP7_DKwE1&t=637812053229275428';
+//]]>
+</script>
+</form>
+</body>
+</html>
