@@ -37,6 +37,7 @@
                         <th class="hidden">ID</th>
                         <th>タスク</th>
                         <th width="150px">期限</th>
+                        <th>メモ</th>
                         <th width="100px">状態</th>
                         <th></th>
                         <th></th>
@@ -48,8 +49,10 @@
                         <td class="hidden" th:text="${task.id}"></td>
                         <td th:text="${task.task}"></td>
                         <td width="100px" th:text="${task.deadline}"></td>
-                        <td width="50px"  th:text="${task.done} ? '完了': '未完了'"></td>
 
+                        <td th:text="${task.memo}"></td>
+
+                        <td width="50px"  th:text="${task.done} ? '完了': '未完了'"></td>
                         <td width="50px">
                             <button type="submit" id="update_button"
                                 onclick="copyToDialog(this.parentElement.parentElement);">更新</button>
@@ -86,6 +89,10 @@
                     <input id="update_task" name="task" type="text" />
                     <label>期限</label>
                     <input id="update_deadline" name="deadline" type="date" />
+
+                    <label>メモ</label>
+                    <input id="update_memo" name="memo" type="text" />
+
                     <label>状態</label>
                     <select id="update_status" name="done">
                         <option value="false">未完了</option>
@@ -105,7 +112,10 @@
                 document.getElementById('update_id').value = row.cells[0].firstChild.data;
                 document.getElementById('update_task').value = row.cells[1].firstChild.data;
                 document.getElementById('update_deadline').value = row.cells[2].firstChild.data;
-                document.getElementById('update_status').selectedIndex=(row.cells[3].firstChild.data=='完了')?1:0;
+
+                document.getElementById('update_memo').value = row.cells[3].firstChild.data;
+
+                document.getElementById('update_status').selectedIndex=(row.cells[4].firstChild.data=='完了')?1:0;
                 var dialog = document.getElementById('updateDialog');
                 dialog.style.left= ((window.innerWidth - 500) / 2) + 'px';
                 dialog.style.display='block';
@@ -121,6 +131,9 @@
                 integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
                 crossorigin="anonymous">
         </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"> </script>
+        <script> $(document).ready(function() { alert("Hello world"); }); </script>
 
     </body>
 </html>
