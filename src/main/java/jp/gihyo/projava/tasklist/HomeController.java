@@ -26,27 +26,17 @@ public class HomeController {
     String hello(Model model) {
         model.addAttribute("time",LocalDateTime.now());
         return "hello";
-//        return """
-//                <html>
-//                    <head><title>Hello</title></head>
-//                    <body>
-//                        <h1>Hello</h1>
-//                        It works!<br>
-//                        現在時刻は%sです。
-//                    </body>
-//                </html>
-//                """.formatted(LocalDateTime.now());
     }
     @GetMapping("/add")
     String addItem(@RequestParam("task")String task,
                    @RequestParam("deadline") String deadline,
                    @RequestParam("memo") String memo) {
         String id = UUID.randomUUID().toString().substring(0,8);
-        TaskItem item = new TaskItem(id, task, deadline, memo, false);
+        TaskItem item = new TaskItem(id, task, deadline, memo , false);
         dao.add(item);
-//        taskItems.add(item);
         return "redirect:/list";
     }
+
     @GetMapping("/list")
     String listItems(Model model) {
         List<TaskItem> taskItems = dao.findAll();
@@ -68,4 +58,13 @@ public class HomeController {
         dao.update(taskItem);
         return "redirect:/list";
     }
+
+    @GetMapping("/search")
+    String search(Model model,
+           @RequestParam(name = "month") String month,
+           @RequestParam(name = "chk1", required = false, defaultValue = "1" ) String chk1) {
+             List<TaskItem> taskItems = dao.search(month,chk1);
+             model.addAttribute("tasklist", taskItems);
+             return "home";
+           }
 }

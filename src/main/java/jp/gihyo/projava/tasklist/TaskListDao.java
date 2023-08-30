@@ -14,19 +14,13 @@ import java.util.Map;
 
 @Service
 public class TaskListDao {
-    //    private final static String TABLE_NAME = "tasklist";
     private final JdbcTemplate jdbcTemplate;
-
     @Autowired
-    TaskListDao(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
-
+    TaskListDao(JdbcTemplate jdbcTemplate) { this.jdbcTemplate = jdbcTemplate; }
     public void add(TaskItem taskItem) {
         SqlParameterSource param = new BeanPropertySqlParameterSource(taskItem);
         SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate).withTableName("tasklist");
-        insert.execute(param);
-    }
+        insert.execute(param); }
     public List<TaskItem> findAll() {
         String query = "SELECT * FROM tasklist";
         List<Map<String, Object>> resurt = jdbcTemplate.queryForList(query);
@@ -38,9 +32,7 @@ public class TaskListDao {
                         row.get("memo").toString(),
                         (Boolean) row.get("done")))
                 .toList();
-        return taskItems;
-    }
-
+        return taskItems; }
     public int update(TaskItem taskItem) {
         int number = jdbcTemplate.update(
                 "UPDATE tasklist SET task = ?, deadline = ?, memo = ?, done = ? WHERE id = ?",
@@ -49,11 +41,25 @@ public class TaskListDao {
                 taskItem.memo(),
                 taskItem.done(),
                 taskItem.id());
-        return number;
-    }
-
+        return number; }
     public int delete(String id) {
         int number = jdbcTemplate.update("DELETE FROM tasklist WHERE id = ?", id);
-        return number;
-    }
+        return number; }
+    public List<TaskItem>search(String month, String chk1) {
+        String query;
+        if (chk1.equals("0")) {
+            query = "SELECT * FROM tasklist where deadline like '" + month + "%' and  done=0 ";
+        } else {
+            query = "SELECT * FROM tasklist where deadline like '" + month + "%'";
+        }
+        List<Map<String, Object>> resurt = jdbcTemplate.queryForList(query);
+        List<TaskItem> taskItems = resurt.stream()
+                .map((Map<String, Object> row) -> new TaskItem(
+                        row.get("id").toString(),
+                        row.get("task").toString(),
+                        row.get("deadline").toString(),
+                        row.get("memo").toString(),
+                        (Boolean) row.get("done")))
+                .toList();
+        return taskItems; }
 }

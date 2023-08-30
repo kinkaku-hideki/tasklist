@@ -1,102 +1,88 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="">
     <head>
         <meta charset="UTF-8">
         <title>タスク管理アプリケーション</title>
-
-<!--        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"-->
-<!--              rel="stylesheet"-->
-<!--              integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"-->
-<!--              crossorigin="anonymous">-->
-
-                <link th:href="@{/home.css}" rel="stylesheet">
+        <link th:href="@{/home.css}" rel="stylesheet">
     </head>
-
     <body>
         <h1>タスク管理アプリケーション</h1>
         <div class="task_form">
             <h2>タスクの登録</h2>
             <form action="/add">
-                <label>タスク</label>
-                <input name="task" type="text" />
-                <label>期限</label>
-                <input name="deadline" type="date"/>
-                <input type="submit" value="登録"/>
+                <label>タスク</label>   <input name="task" type="text" />
+                <label>期限</label>     <input name="deadline" type="date" style="text-align:center"/>
+                <label>メモ</label> <input name="memo" type="text" /> <input type="submit" value="登録"/>
             </form>
         </div>
 
-
         <div class="tasklist">
-            <h2>現在のタスク一覧</h2>
-
-            <table border = "1" class="table table-striped" >
-
-<!--            <table border = "1">-->
+           <h2>現在のタスク一覧</h2>
+            <form action="match">
+              <p>タスク抽出  :
+                <label> <input type="text" name="text1"> タスク内容を入力 </label>
+              <td><form action="/matchforward">
+                 <button type="submit">前方一致</button>
+              </form></td>
+                <td><form action="/matchpart">
+                 <button type="submit">部分一致</button>
+              </form></td>
+              <form action="/matchbackward">
+                 <button type="submit">後方一致</button>
+                  <td></form>
+            </form></td></p>
+           <form action="/search">
+              <p>月別 未完了分抽出　：
+                <label> <input type="checkbox" name="chk1" value="0"> 完了済は非表示 </label>
+                <label> <input type="month" name="month" style="text-align:center"/> </label>
+                <button type="submit">検索</button>
+                <a href="https://full-count.jp/category/mlb/shohei-ohtani/" target="_blank"> 大谷翔平速報 </a>
+           </form></p>
+           <table border = "1" class="table table-striped" >
                 <thead>
-                    <tr>
-                        <th class="hidden">ID</th>
-                        <th>タスク</th>
-                        <th width="150px">期限</th>
-                        <th>メモ</th>
-                        <th width="100px">状態</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
+                  <tr>
+                    <th width="30px">ID</th>  <th>タスク</th>
+                    <th width="100px">期限</th> <th>メモ</th>
+                    <th width="100px">状態</th> <th>更新</th> <th>削除</th>
+                  </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="task : ${tasklist}">
-
-                        <td class="hidden" th:text="${task.id}"></td>
-                        <td th:text="${task.task}"></td>
-                        <td width="100px" th:text="${task.deadline}"></td>
-
-                        <td th:text="${task.memo}"></td>
-
-                        <td width="50px"  th:text="${task.done} ? '完了': '未完了'"></td>
-                        <td width="50px">
-                            <button type="submit" id="update_button"
-                                onclick="copyToDialog(this.parentElement.parentElement);">更新</button>
-
-<!--                        <td width="50px">&ndash;&gt;-->
-<!--                           <button type="submit" id="update_button" onclick="-->
-<!--                           let row = this.parentElement.parentElement;-->
-<!--                           getElementById('update_id').value=row.cells[0].firstChild.data;-->
-<!--                           getElementById('update_task').value=row.cells[1].firstChild.data;-->
-<!--                           getElementById('update_deadline').value=row.cells[2].firstChild.data;-->
-<!--                           getElementById('update_status').selectedIndex=(row.cells[3].firstChild.data=='完了')?1:0;-->
-<!--                           var dialog = getElementById('updateDialog');-->
-<!--                           dialog.style.left = ((window.innerWidth - 500) / 2) + 'px';-->
-<!--                           dialog.style.display = 'block';-->
-<!--                           ">更新</button>-->
-<!--                        </td>-->
-
-                        <td width="50px">
-                            <form action="/delete">
-                                <button type="submit" id="delete_button">削除</button>
-                                <input type="hidden" name="id" th:value="${task.id}" />
-                            </form>
-                        </td>
-                    </tr>
+                  <tr th:each="task : ${tasklist}">
+                    <td width="30px" th:text="${task.id}"></td>
+                    <td th:text="${task.task}"></td>
+                    <td width="150px" th:text="${task.deadline}" style="text-align:center"></td>
+                    <td th:text="${task.memo}"></td>
+                    <td width="50px"  th:text="${task.done} ? '完了': '未完了'" style="text-align:center"></td>
+                    <td width="50px">
+                        <button type="submit" id="update_button"
+                                onclick="copyToDialog(this.parentElement.parentElement);"
+                                style="text-align:center";>更新</button>
+                    </td>
+                    <td width="50px">
+                        <form action="/delete">
+                            <button type="submit" id="delete_button" style="text-align:center">削除</button>
+                            <input type="hidden" name="id" th:value="${task.id}" />
+                        </form>
+                    </td>
+                  </tr>
                 </tbody>
-            </table>
+           </table>
         </div>
         <div id="updateDialog">
             <div class="task_form">
                 <h2>タスクの更新</h2>
                 <form action="/update">
                     <input id="update_id" name="id" type="hidden" />
-                    <label>タ ス ク</label>
+                    <label>タスク</label>
                     <input id="update_task" name="task" type="text" />
                     <label>期限</label>
-                    <input id="update_deadline" name="deadline" type="date" />
-
+                    <input id="update_deadline" name="deadline" type="date" style="text-align:center"/>
                     <label>メモ</label>
                     <input id="update_memo" name="memo" type="text" />
-
                     <label>状態</label>
                     <select id="update_status" name="done">
-                        <option value="false">未完了</option>
-                        <option value="true">完了</option>
+                        <option value="false" style="text-align:center">未完了</option>
+                        <option value="true" style="text-align:center">完了</option>
                     </select>
                     <div>
                         <button type="submit">更新</button>
@@ -109,13 +95,11 @@
 
         <script language="JavaScript">
             function copyToDialog(row){
-                document.getElementById('update_id').value = row.cells[0].firstChild.data;
-                document.getElementById('update_task').value = row.cells[1].firstChild.data;
-                document.getElementById('update_deadline').value = row.cells[2].firstChild.data;
-
-                document.getElementById('update_memo').value = row.cells[3].firstChild.data;
-
-                document.getElementById('update_status').selectedIndex=(row.cells[4].firstChild.data=='完了')?1:0;
+                document.getElementById('update_id').value = row.cells[0].textContent;
+                document.getElementById('update_task').value = row.cells[1].textContent;
+                document.getElementById('update_deadline').value = row.cells[2].textContent;
+                document.getElementById('update_memo').value = row.cells[3].textContent;
+                document.getElementById('update_status').selectedIndex=(row.cells[4].textContent=='完了')?1:0;
                 var dialog = document.getElementById('updateDialog');
                 dialog.style.left= ((window.innerWidth - 500) / 2) + 'px';
                 dialog.style.display='block';
@@ -125,7 +109,6 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
                 integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
                 crossorigin="anonymous">
-
         </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
                 integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
@@ -136,4 +119,5 @@
         <script> $(document).ready(function() { alert("Hello world"); }); </script>
 
     </body>
+</script>
 </html>
